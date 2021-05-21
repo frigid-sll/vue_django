@@ -1,0 +1,29 @@
+<template>
+    <div id="one">
+        <first @childFn="parentFn"></first>
+        <br/> 
+        子组件传来的值 : {{message}}
+        <login></login>
+    </div>
+</template>
+<script>
+import first from '@/components/child/first'
+import login from '@/components/demo/login'
+export default {
+    name:'one',
+    data(){
+        return{
+            message: ''
+        }
+    },
+    methods: {
+       parentFn(payload) {
+        this.message = payload;
+      }
+    },
+    components:{
+        first,
+        login
+        },
+}
+</script>
